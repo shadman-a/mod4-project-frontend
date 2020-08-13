@@ -8,7 +8,6 @@ class CharactersList extends React.Component {
     }
 
     render(){
-        console.log(this.props)
         return(
             <>
             {this.getCharacter()}
