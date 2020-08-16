@@ -12,7 +12,8 @@ class GamePlay extends React.Component{
     this.state={
       currentJellyLeft: 0,
       currentJellyBottom: 0,
-      collide: false
+      collide: false,
+      points: 0
     }
   }
 
@@ -21,9 +22,10 @@ class GamePlay extends React.Component{
         this.characterRef.current.x + this.characterRef.current.width > this.state.currentJellyLeft &&
         this.characterRef.current.y < this.state.currentJellyBottom + 50 &&
         this.characterRef.current.y + this.characterRef.current.height > this.state.currentJellyBottom
-        ) {this.setState({
-          collide: true
-        },()=>console.log(this.state.collide))}
+        ) {this.setState(previousState => {
+          return {collide: true,
+          points: previousState.points + 0.5}
+        }, () => console.log(this.state.points))}
   }
 
   componentDidMount(){
@@ -72,6 +74,7 @@ class GamePlay extends React.Component{
     }
     return(
       <>
+      <h3>Points: {this.state.points}</h3>
      {this.state.collide ? null : <Jellies getCord={this.getCord}/>}
       <img className="character-img" alt="" ref={this.characterRef} src={this.props.character.image} width="100" height="100"/>
       
