@@ -7,8 +7,6 @@ class GamePlay extends React.Component{
   constructor(props){
     super(props)
     this.characterRef = React.createRef()
-    this.firstJellyRef = React.createRef()
-    // this.secJellyRef = React.createRef()
     document.addEventListener('keydown', this.handleKeyDown)
     this.state={
       currentJellyLeft: 0,
@@ -26,9 +24,12 @@ class GamePlay extends React.Component{
         this.characterRef.current.y < this.state.currentJellyBottom + 50 &&
         this.characterRef.current.y + this.characterRef.current.height > this.state.currentJellyBottom
         ) {this.setState(previousState => {
-          return {collide: true,
-          points: previousState.points + 0.5}
-        })}
+          return {
+            collide: true,
+            points: previousState.points + 0.5
+          }
+        })
+      }
   }
 
   didCollide2 = () => {
@@ -37,16 +38,18 @@ class GamePlay extends React.Component{
         this.characterRef.current.y < this.state.currentJellyBottom2 + 50 &&
         this.characterRef.current.y + this.characterRef.current.height > this.state.currentJellyBottom2
         ) {this.setState(previousState => {
-          return {collide: false,
-          points: previousState.points + 0.5}
-        })}
+          return {
+            collide: false,
+            points: previousState.points + 0.5
+          }
+        })
+      }
   }
 
   componentDidMount(){
     this.characterRef.current.style.left = 0
     this.characterRef.current.style.bottom = 0
   }
-
   
   handleKeyDown = (event) => {
     if (this.characterRef.current) {
@@ -98,7 +101,7 @@ class GamePlay extends React.Component{
     return(
       <>
       <h3>Points: {this.state.points}</h3>
-     {this.state.collide ? <Jellies2 getCord={this.getCord2}/> : <Jellies getCord={this.getCord}/>}
+      {this.state.collide ? <Jellies2 getCord={this.getCord2}/> : <Jellies getCord={this.getCord}/>}
       <img className="character-img" alt="" ref={this.characterRef} src={this.props.character.image} width="100" height="100"/>
       
       </>
