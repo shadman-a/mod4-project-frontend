@@ -37,5 +37,4 @@ class Jellies extends React.Component {
     }
 }
 
-
 export default Jellies
