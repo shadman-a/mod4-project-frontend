@@ -13,6 +13,8 @@ class GamePlay extends React.Component{
     this.state={
       currentJellyLeft: 0,
       currentJellyBottom: 0,
+      currentJellyLeft2: 0,
+      currentJellyBottom2: 0,
       collide: false,
       points: 0
     }
@@ -25,6 +27,17 @@ class GamePlay extends React.Component{
         this.characterRef.current.y + this.characterRef.current.height > this.state.currentJellyBottom
         ) {this.setState(previousState => {
           return {collide: true,
+          points: previousState.points + 0.5}
+        })}
+  }
+
+  didCollide2 = () => {
+    if (this.characterRef.current.x < this.state.currentJellyLeft2 + 50 &&
+        this.characterRef.current.x + this.characterRef.current.width > this.state.currentJellyLeft2 &&
+        this.characterRef.current.y < this.state.currentJellyBottom2 + 50 &&
+        this.characterRef.current.y + this.characterRef.current.height > this.state.currentJellyBottom2
+        ) {this.setState(previousState => {
+          return {collide: false,
           points: previousState.points + 0.5}
         })}
   }
@@ -68,15 +81,24 @@ class GamePlay extends React.Component{
     })
   }
 
+  getCord2=(x, y)=>{
+    this.setState({
+      currentJellyLeft2: x, 
+      currentJellyBottom2: y
+    })
+  }
+
   render(){
-  
     if (this.state.currentJellyLeft !== 0 && !this.state.collide) {
       this.didCollide()
+    }
+    if (this.state.currentJellyLeft2 !== 0 && this.state.collide) {
+      this.didCollide2()
     }
     return(
       <>
       <h3>Points: {this.state.points}</h3>
-     {this.state.collide ? <Jellies2 getCord={this.getCord}/> : <Jellies getCord={this.getCord}/>}
+     {this.state.collide ? <Jellies2 getCord={this.getCord2}/> : <Jellies getCord={this.getCord}/>}
       <img className="character-img" alt="" ref={this.characterRef} src={this.props.character.image} width="100" height="100"/>
       
       </>

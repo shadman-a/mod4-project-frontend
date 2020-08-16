@@ -15,7 +15,7 @@ class Jellies2 extends React.Component {
 
     componentDidMount() {
         this.firstJellyRef.current.style.left = '1000px'
-        let currentTop = (Math.floor(Math.random() * 1000) + 0);
+        let currentTop = (Math.floor(Math.random() * (1000 - 0)) + 0);
         this.firstJellyRef.current.style.top = currentTop + 'px'
         setInterval(() => {this.moveJellyFish(currentTop)}, 1)
     }
