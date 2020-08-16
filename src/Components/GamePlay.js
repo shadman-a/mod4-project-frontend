@@ -1,5 +1,6 @@
 import React from 'react';
 import Jellies from './Jellies'
+import Jellies2 from './Jellies2'
 
 class GamePlay extends React.Component{
 
@@ -25,7 +26,7 @@ class GamePlay extends React.Component{
         ) {this.setState(previousState => {
           return {collide: true,
           points: previousState.points + 0.5}
-        }, () => console.log(this.state.points))}
+        })}
   }
 
   componentDidMount(){
@@ -75,7 +76,7 @@ class GamePlay extends React.Component{
     return(
       <>
       <h3>Points: {this.state.points}</h3>
-     {this.state.collide ? null : <Jellies getCord={this.getCord}/>}
+     {this.state.collide ? <Jellies2 getCord={this.getCord}/> : <Jellies getCord={this.getCord}/>}
       <img className="character-img" alt="" ref={this.characterRef} src={this.props.character.image} width="100" height="100"/>
       
       </>
