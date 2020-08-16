@@ -12,8 +12,6 @@ class GamePlay extends React.Component{
     this.state={
       currentJellyLeft: 0,
       currentJellyBottom: 0,
-      currentCharLeft: 0,
-      currentCharTop: 0,
       collide: false
     }
   }
@@ -41,25 +39,21 @@ class GamePlay extends React.Component{
         if (currentLeft >= 0 && currentLeft < 1600) {
           currentLeft += 20
           this.characterRef.current.style.left = `${currentLeft}px`;}
-        this.setState({currentCharLeft: currentLeft})
       } else if (event.key === 'ArrowUp') {
         let currentBottom = parseInt(this.characterRef.current.style.bottom, 10)
         if (currentBottom >= 0 && currentBottom < 1000){
           currentBottom += 20
           this.characterRef.current.style.bottom = `${currentBottom}px`}
-        this.setState({currentCharTop: currentBottom})
       } else if (event.key === 'ArrowDown') {
         let currentBottom = parseInt(this.characterRef.current.style.bottom, 10)
         if (currentBottom > 0 && currentBottom < 1000){
           currentBottom -= 20
           this.characterRef.current.style.bottom = `${currentBottom}px`}
-        this.setState({currentCharTop: currentBottom})
       } else if (event.key === 'ArrowLeft') {
         let currentLeft = parseInt(this.characterRef.current.style.left, 10);
         if (currentLeft > 0 && currentLeft < 1600){
           currentLeft -= 20
           this.characterRef.current.style.left = `${currentLeft}px`}
-        this.setState({currentCharLeft: currentLeft})
       }
     }
   }
@@ -78,7 +72,7 @@ class GamePlay extends React.Component{
     }
     return(
       <>
-      <Jellies getCord={this.getCord}/>
+     {this.state.collide ? null : <Jellies getCord={this.getCord}/>}
       <img className="character-img" alt="" ref={this.characterRef} src={this.props.character.image} width="100" height="100"/>
       
       </>
