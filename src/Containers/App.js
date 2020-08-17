@@ -7,6 +7,7 @@ import Login from '../Components/Login'
 import Signup from '../Components/Signup'
 import NavBar from '../Components/NavBar'
 import GamePlay from '../Components/GamePlay'
+import Profile from '../Components/Profile'
 import '../App.css';
 
 
@@ -43,6 +44,7 @@ class App extends Component {
           this.handleLogout()
         }
       })
+      .then(console.log)
       .catch(error => console.log('api errors:', error))
   }
 
@@ -67,6 +69,7 @@ class App extends Component {
         <Route path="/" component={NavBar}/>
             <Route path="/characters" render={() => <CharactersList characters={this.state.characters} characterClickHandler={this.characterClickHandler}/>}/>
             <Route path="/play" render={() => <GamePlay character={this.state.character}/>}/>
+            <Route path="/profile" render={()=> <Profile/>}/>
           <Switch>
             <Route 
               exact path='/' 

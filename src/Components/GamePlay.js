@@ -1,6 +1,8 @@
 import React from 'react';
 import Jellies from './Jellies'
 import Jellies2 from './Jellies2'
+import { NavLink } from "react-router-dom";
+
 
 class GamePlay extends React.Component{
 
@@ -103,7 +105,7 @@ class GamePlay extends React.Component{
       <h3 className="points">Points: {this.state.points}</h3>
       {this.state.collide ? <Jellies2 getCord={this.getCord2}/> : <Jellies getCord={this.getCord}/>}
       <img className="character-img" alt="" ref={this.characterRef} src={this.props.character.image} width="100" height="100"/>
-      
+      <NavLink to="/Profile">End Game</NavLink>
       </>
     )
   }
