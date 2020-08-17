@@ -2,6 +2,13 @@ import React from 'react'
 
 class Profile extends React.Component{
 
+    state ={
+        user: this.props.user.username,
+        score: this.props.points
+
+
+    }
+
     componentDidMount(){
         fetch('http://localhost:3000/game_plays', {
             method: "POST",
@@ -15,12 +22,14 @@ class Profile extends React.Component{
                 points: this.props.points
             })
         })
-        .then(response => response.json())
     }
 
 render(){
     return(
-    <p>Hi {this.props.user.username}</p>
+    <>
+    <h1>Hi, {this.state.user} </h1>
+    <h3>Your Score is: {this.state.score}</h3>
+    </>
     )
 }
 
