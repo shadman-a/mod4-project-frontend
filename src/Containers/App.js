@@ -18,7 +18,8 @@ class App extends Component {
       isLoggedIn: false,
       user: {},
       characters: [],
-      character: {}
+      character: {},
+      points: 0
     };
   }
 
@@ -62,14 +63,18 @@ class App extends Component {
       })
   }
 
+  pointsClickHandler = (number) => {
+    this.setState({points: number})
+  }
+
   render() {
     return (
       <div>
         <BrowserRouter>
         <Route path="/" component={NavBar}/>
             <Route path="/characters" render={() => <CharactersList characters={this.state.characters} characterClickHandler={this.characterClickHandler}/>}/>
-            <Route path="/play" render={() => <GamePlay character={this.state.character}/>}/>
-            <Route path="/profile" render={()=> <Profile/>}/>
+            <Route path="/play" render={() => <GamePlay pointsClickHandler={this.pointsClickHandler}character={this.state.character}/>}/>
+            <Route path="/profile" render={()=> <Profile points={this.state.points} user={this.state.user} character={this.state.character}/>}/>
           <Switch>
             <Route 
               exact path='/' 

@@ -1,40 +1,26 @@
 import React from 'react'
-import { NavLink } from "react-router-dom";
-import axios from 'axios'
-
 
 class Profile extends React.Component{
 
-state={
-    loggedIn: "",
-    users: []
-}
-
-componentDidMount(){
-    axios.get('http://localhost:3000/logged_in', {withCredentials: true})
-    .then(response => response.data.user.username)
-    .then(userFetch => this.setState({
-        loggedIn: userFetch
-    }))
-}
-
-userFetch(){
-    fetch('http://localhost:3000/users')
-    .then(response => response.json())
-    .then(users => this.setState({
-        users: users.users
-    }))
-}
-
-compareUsers(){
-    return this.state.users.find(user=>user.username==this.state.loggedIn)
-}
+    componentDidMount(){
+        fetch('http://localhost:3000/game_plays', {
+            method: "POST",
+            headers: {
+                "accepts": "application/json",
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                character_id: this.props.character.id,
+                user_id: this.props.user.id,
+                points: this.props.points
+            })
+        })
+        .then(response => response.json())
+    }
 
 render(){
-    this.userFetch()
-    this.compareUsers()
     return(
-        <p>{this.compareUsers().username}</p>
+    <p>Hi {this.props.user.username}</p>
     )
 }
 
