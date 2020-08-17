@@ -64,7 +64,24 @@ class App extends Component {
   }
 
   pointsClickHandler = (number) => {
-    this.setState({points: number})
+    if (number === 0 || number === null){
+      this.setState({
+        points: 0
+      })
+    } else {
+    this.setState({points: number})}
+    fetch('http://localhost:3000/game_plays', {
+            method: "POST",
+            headers: {
+                "accepts": "application/json",
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                character_id: this.state.character.id,
+                user_id: this.state.user.id,
+                points: this.state.points
+            })
+        })
   }
 
   render() {

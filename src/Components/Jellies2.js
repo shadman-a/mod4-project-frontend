@@ -3,6 +3,8 @@ import Jelly2 from '../jelly2.png'
 
 
 class Jellies2 extends React.Component {
+    intervalId = 0
+
     constructor(props){
         super(props)
         this.firstJellyRef = React.createRef()
@@ -17,7 +19,7 @@ class Jellies2 extends React.Component {
         this.firstJellyRef.current.style.left = '1000px'
         let currentTop = (Math.floor(Math.random() * (600 - 50)) + 0);
         this.firstJellyRef.current.style.top = currentTop + 'px'
-        setInterval(() => {this.moveJellyFish(currentTop)}, 1)
+        this.intervalId = setInterval(() => {this.moveJellyFish(currentTop)}, 1)
     }
 
     moveJellyFish = (currentTop) => {
@@ -28,6 +30,11 @@ class Jellies2 extends React.Component {
           this.firstJellyRef.current.style.left = `${currentLeft}px`;
           this.setState({x: currentLeft},  ()=>this.props.getCord(this.state.x, this.state.y))
         }
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.intervalId)
+        console.log("unmount")
     }
 
     render() {

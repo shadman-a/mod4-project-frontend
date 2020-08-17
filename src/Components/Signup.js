@@ -9,7 +9,7 @@ class Signup extends Component {
       email: '',
       password: '',
       password_confirmation: '',
-      errors: ''
+      errors: '',
      };
   }
 
@@ -27,7 +27,7 @@ handleSubmit = (event) => {
       username: username,
       email: email,
       password: password,
-      password_confirmation: password_confirmation
+      password_confirmation: password_confirmation,
     }
 axios.post('http://localhost:3000/users', {user}, {withCredentials: true})
     .then(response => {
