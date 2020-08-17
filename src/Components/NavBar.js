@@ -6,6 +6,7 @@ function NavBar() {
     <div className="navbar">
       <NavLink to="/" className="home">Home</NavLink>
       <NavLink to="/characters" className="characters">Characters</NavLink>
+      {/* <NavLink to /> */}
     </div>
   );
 }
