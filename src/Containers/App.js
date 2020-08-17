@@ -30,10 +30,6 @@ class App extends Component {
     this.loginStatus()
   }
 
-  // componentDidMount() {
-  //     this.loginStatus()
-  // }
-
   characterClickHandler = (obj) => {
     this.setState({character: obj})
   }

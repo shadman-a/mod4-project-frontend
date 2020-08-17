@@ -5,19 +5,45 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'Krabby Patty';
 }
 
+a:link {
+  text-decoration: none;
+  color: black;
+}
 
-/* @keyframes jellyfishanimation {
-  0% {
-    left: 1000px;
-    bottom: 1000px;
-  }
-  100% {
-    left: 0px;
-    bottom: 1000px;
-  }
-} */
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar {
+  text-align: center;
+  font-size: 35px;
+  background-color: #99a0ce;
+}
+
+.navbar .characters{
+  margin: 60px;
+}
+
+.navbar .characters:hover {
+  background-color: #da6950;
+}
+
+.navbar .home {
+  margin-left: 125px;
+}
+
+.navbar .home:hover {
+  background-color: #da6950;
+}
+
+.points {
+  text-align: center;
+  color: #da6950
+}
 
 .jellyfish1 {
   position: absolute;

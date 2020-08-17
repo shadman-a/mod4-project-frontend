@@ -100,7 +100,7 @@ class GamePlay extends React.Component{
     }
     return(
       <>
-      <h3>Points: {this.state.points}</h3>
+      <h3 className="points">Points: {this.state.points}</h3>
       {this.state.collide ? <Jellies2 getCord={this.getCord2}/> : <Jellies getCord={this.getCord}/>}
       <img className="character-img" alt="" ref={this.characterRef} src={this.props.character.image} width="100" height="100"/>
       
