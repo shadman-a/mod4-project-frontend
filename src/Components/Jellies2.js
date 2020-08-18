@@ -34,7 +34,6 @@ class Jellies2 extends React.Component {
 
     componentWillUnmount(){
         clearInterval(this.intervalId)
-        console.log("unmount")
     }
 
     render() {

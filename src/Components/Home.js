@@ -27,7 +27,7 @@ class Home extends React.Component {
 
   render (){
     return (
-      <div classname="welcomecontainer">
+      <div className="welcomecontainer">
         <div className="welcomediv">
         {
           this.props.loggedInStatus ? null :

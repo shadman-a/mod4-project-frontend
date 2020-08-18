@@ -8,6 +8,7 @@ import Signup from '../Components/Signup'
 import NavBar from '../Components/NavBar'
 import GamePlay from '../Components/GamePlay'
 import Profile from '../Components/Profile'
+import frolic from './Curb_Your_Enthusiasm.mp3';
 import '../App.css';
 
 
@@ -91,6 +92,7 @@ class App extends Component {
             <Route path="/characters" render={() => <CharactersList characters={this.state.characters} characterClickHandler={this.characterClickHandler}/>}/>
             <Route path="/play" render={() => <GamePlay pointsClickHandler={this.pointsClickHandler}character={this.state.character}/>}/>
             <Route path="/profile" render={()=> <Profile points={this.state.points} user={this.state.user} character={this.state.character}/>}/>
+            <audio autoPlay loop > <source src={frolic}/> </audio>
           <Switch>
             <Route 
               exact path='/' 

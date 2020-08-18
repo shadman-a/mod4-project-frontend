@@ -8,14 +8,13 @@ class HighScoreCard extends React.Component{
     }
 
     render(){
-        console.log(this.sortUsers())
-    return (
-        <div className="highscores">
-            <h3>Top Users:</h3>
-            {this.sortUsers()}
-        </div>
-    )
-}
+        return (
+            <div className="highscores">
+                <h3>Top Users:</h3>
+                {this.sortUsers()}
+            </div>
+        )
+    }
 }
 
 export default HighScoreCard

@@ -1,5 +1,4 @@
 import React from 'react'
-import NavBar from './NavBar'
 import { NavLink } from 'react-router-dom'
 
 class Profile extends React.Component{
