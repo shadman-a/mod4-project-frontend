@@ -5,7 +5,7 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: 'Krabby Patty';
+  font-family: 'Krabby Patty'; 
 }
 
 a:link {
@@ -81,4 +81,30 @@ a:visited {
 
 .welcomediv .signup:hover {
   background-color: #247FD6;
+}
+
+.characterscontainer {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.characterscontainer .charactercard {
+  text-align: center;
+  border-style: solid;
+  border-color: grey;
+  margin: 50px;
+}
+
+.charactercard .charactername {
+  margin: 10px;
+}
+
+.characterimg {
+  border-bottom-style: solid;
+  border-color: grey;
+}
+
+.pick {
+  text-align: center
 }

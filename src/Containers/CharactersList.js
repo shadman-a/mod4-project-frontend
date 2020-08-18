@@ -10,7 +10,11 @@ class CharactersList extends React.Component {
     render(){
         return(
             <>
+            <h1 className="pick">Pick a Character</h1>
+            <div className="characterscontainer">
+            
             {this.getCharacter()}
+            </div>
             </>
         )
     }
