@@ -1,4 +1,6 @@
 import React from 'react'
+import NavBar from './NavBar'
+import { NavLink } from 'react-router-dom'
 
 class Profile extends React.Component{
 
@@ -8,9 +10,6 @@ class Profile extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.props.user.high_score)
-        console.log(this.state.score)
-        console.log(this.state.score > this.props.user.high_score || this.props.user.high_score === null)
         if (this.state.score > this.props.user.high_score || this.props.user.high_score === null){
            fetch(`http://localhost:3000/users/${this.props.user.id}`,{
             method: "PATCH",
@@ -23,20 +22,20 @@ class Profile extends React.Component{
             })
            })
            .then(response=>response.json())
-           .then(console.log)
         }   
     }
 
-
-
-   
+    deleteHandler = () => {
+        fetch(`http://localhost:3000/users/${this.props.user.id}`,{ method: "DELETE"}
+    )}
 
     render(){
         return(
-        <>
+        <div>
         <h1>Hi, {this.state.user} </h1>
         <h3>Your Score is: {this.state.score}</h3>
-        </>
+        <NavLink to='/login' onClick={this.deleteHandler}>Delete</NavLink>
+        </div>
         )
     }
 
