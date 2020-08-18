@@ -3,7 +3,6 @@ import Jellies from './Jellies'
 import Jellies2 from './Jellies2'
 import { NavLink } from "react-router-dom";
 
-
 class GamePlay extends React.Component{
 
   constructor(props){
@@ -21,31 +20,39 @@ class GamePlay extends React.Component{
   }
 
   didCollide = () => {
-    if (this.characterRef.current.x < this.state.currentJellyLeft + 50 &&
+    if (this.characterRef.current)
+    {if (this.characterRef.current.x < this.state.currentJellyLeft + 50 &&
         this.characterRef.current.x + this.characterRef.current.width > this.state.currentJellyLeft &&
         this.characterRef.current.y < this.state.currentJellyBottom + 50 &&
         this.characterRef.current.y + this.characterRef.current.height > this.state.currentJellyBottom
-        ) {this.setState(previousState => {
-          return {
-            collide: true,
-            points: previousState.points + 0.5
-          }
+        ) {
+          this.setState({
+          currentJellyLeft: 0,
+          currentJellyBottom: 0,
+          currentJellyLeft2: 0,
+          currentJellyBottom2: 0,
+          collide: true,
+          points:  (this.state.points + 1)
         })
-      }
+      }}
   }
 
   didCollide2 = () => {
-    if (this.characterRef.current.x < this.state.currentJellyLeft2 + 50 &&
+    if (this.characterRef.current)
+    {if (this.characterRef.current.x < this.state.currentJellyLeft2 + 50 &&
         this.characterRef.current.x + this.characterRef.current.width > this.state.currentJellyLeft2 &&
         this.characterRef.current.y < this.state.currentJellyBottom2 + 50 &&
         this.characterRef.current.y + this.characterRef.current.height > this.state.currentJellyBottom2
-        ) {this.setState(previousState => {
-          return {
-            collide: false,
-            points: previousState.points + 0.5
-          }
+        ) {
+          this.setState({
+          currentJellyLeft: 0,
+          currentJellyBottom: 0,
+          currentJellyLeft2: 0,
+          currentJellyBottom2: 0,
+          collide: false,
+          points: (this.state.points + 1)
         })
-      }
+      }}
   }
 
   componentDidMount(){
@@ -99,11 +106,11 @@ class GamePlay extends React.Component{
 
   render(){
     if (this.state.currentJellyLeft !== 0 && !this.state.collide) {
-      this.didCollide()
+      setTimeout(this.didCollide, 10)
     }
-    if (this.state.currentJellyLeft2 !== 0 && this.state.collide) {
-      this.didCollide2()
-    }
+    else if (this.state.currentJellyLeft2 !== 0 && this.state.collide) {
+      setTimeout(this.didCollide2, 10)
+    } 
     return(
       <>
       <h3 className="points">Points: {this.state.points}</h3>
