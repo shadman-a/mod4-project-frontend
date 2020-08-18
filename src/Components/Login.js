@@ -61,7 +61,7 @@ handleErrors = () => {
 render() {
     const {username, email, password} = this.state
 return (
-      <div>
+      <div className="welcomecontainer">
         <h1>Log In</h1>
         <form onSubmit={this.handleSubmit}>
           <input

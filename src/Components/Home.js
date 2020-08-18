@@ -47,7 +47,7 @@ class Home extends React.Component {
         <br></br>
         <br></br>
         <div className="highScoresContainer">
-          <p><HighScoreCard users={this.state.users}/></p>
+          <h3><HighScoreCard users={this.state.users}/></h3>
         </div>
       </div>
     );
