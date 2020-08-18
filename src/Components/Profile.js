@@ -6,11 +6,12 @@ class Profile extends React.Component{
 
     state ={
         user: this.props.user.username,
-        score: this.props.points
+        score: this.props.points,
+        high_score: this.props.user.high_score
     }
 
     componentDidMount(){
-        if (this.state.score > this.props.user.high_score || this.props.user.high_score === null){
+        if (this.state.score > this.state.high_score || this.state.high_score === null){
            fetch(`http://localhost:3000/users/${this.props.user.id}`,{
             method: "PATCH",
             headers: {
@@ -32,8 +33,10 @@ class Profile extends React.Component{
     render(){
         return(
         <div>
+        <h1>Game Over</h1>
         <h1>Hi, {this.state.user} </h1>
-        <h3>Your Score is: {this.state.score}</h3>
+        <h2>Your High Score is: {this.props.user.high_score}</h2>
+        <h3>Your most recent score is: {this.state.score}</h3>
         <NavLink to='/login' onClick={this.deleteHandler}>Delete</NavLink>
         </div>
         )
