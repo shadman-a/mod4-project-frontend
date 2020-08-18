@@ -25,7 +25,7 @@ a:visited {
 }
 
 .navbar .characters{
-  margin: 0px;
+  margin: 60px;
 }
 
 .navbar .characters:hover {
@@ -33,7 +33,7 @@ a:visited {
 }
 
 .navbar .home {
-  margin-left: 0px;
+  margin-left: 125px;
 }
 
 .navbar .home:hover {
@@ -57,7 +57,28 @@ a:visited {
   bottom: 0;
 }
 
-h1 {
-  color: red;
+.highscores {
+  text-align: center;
 }
 
+.welcomecontainer {
+  text-align: center;
+}
+
+.welcomediv {
+  text-align: center;
+  font-size: 30px;
+  padding-top: 100px;
+}
+
+.welcomediv .logout:hover {
+  background-color: #247FD6;
+}
+
+.welcomediv .login:hover {
+  background-color: #247FD6;
+}
+
+.welcomediv .signup:hover {
+  background-color: #247FD6;
+}

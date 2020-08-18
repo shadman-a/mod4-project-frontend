@@ -8,7 +8,6 @@ import Signup from '../Components/Signup'
 import NavBar from '../Components/NavBar'
 import GamePlay from '../Components/GamePlay'
 import Profile from '../Components/Profile'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
 
 

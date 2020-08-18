@@ -27,17 +27,25 @@ class Home extends React.Component {
 
   render (){
     return (
-      <div>
-        <h1>Welcome</h1>
-        <Link to='/login'>Log In</Link>
-        <br></br>
-        <Link to='/signup'>Sign Up</Link>
-        <br></br>
+      <div classname="welcomecontainer">
+        <div className="welcomediv">
+        {
+          this.props.loggedInStatus ? null :
+          <Link to='/login' className="login"> | Log In |</Link>
+        }
+
+        {        
+          this.props.loggedInStatus ? null :
+          <Link to='/signup' className="signup">| Sign Up |</Link>
+        }
         { 
           this.props.loggedInStatus ? 
-          <Link to='/logout' onClick={this.handleClick}>Log Out</Link> : 
+          <Link to='/logout' onClick={this.handleClick} className="logout"> | Log Out | </Link> : 
           null
         }
+        </div>
+        <br></br>
+        <br></br>
         <div className="highScoresContainer">
           <p><HighScoreCard users={this.state.users}/></p>
         </div>
