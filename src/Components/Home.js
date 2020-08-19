@@ -29,7 +29,7 @@ class Home extends React.Component {
   render (){
     return (
       <div className="welcomecontainer">
-        <img src={logo} height="400" width="500"/>
+        <img src={logo} height="300" width="400"/>
         <div className="welcomediv">
         {
           this.props.loggedInStatus ? null :

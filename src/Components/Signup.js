@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import {Link} from 'react-router-dom'
+
 
 class Signup extends Component {
   constructor(props) {
@@ -97,6 +99,9 @@ return (
           </button>
       
         </form>
+        <div>
+            or <Link to='/login'>log in</Link>
+          </div>
         <div>
           {
             this.state.errors ? this.handleErrors() : null
