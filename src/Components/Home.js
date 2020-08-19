@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import HighScoreCard from './HighScoreCard'
+import logo from '../logo.png'
 
 class Home extends React.Component {
 
@@ -28,6 +29,7 @@ class Home extends React.Component {
   render (){
     return (
       <div className="welcomecontainer">
+        <img src={logo} height="400" width="500"/>
         <div className="welcomediv">
         {
           this.props.loggedInStatus ? null :
