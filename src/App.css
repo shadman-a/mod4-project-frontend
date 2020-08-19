@@ -108,3 +108,8 @@ a:visited {
 .pick {
   text-align: center
 }
+
+.redbutton {
+  color: red;
+  text-decoration: none;
+}

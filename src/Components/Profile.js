@@ -31,12 +31,12 @@ class Profile extends React.Component{
 
     render(){
         return(
-        <div>
+        <div className="welcomecontainer">
         <h1>Game Over</h1>
         <h1>Hi, {this.state.user} </h1>
         <h2>Your High Score is: {this.props.user.high_score}</h2>
         <h3>Your most recent score is: {this.state.score}</h3>
-        <NavLink to='/login' onClick={this.deleteHandler}>Delete</NavLink>
+        <NavLink style={{color: 'white', textDecoration: 'none', backgroundColor: 'red', padding: '14px 25px'}} to='/login' onClick={this.deleteHandler}>Delete</NavLink>
         </div>
         )
     }
