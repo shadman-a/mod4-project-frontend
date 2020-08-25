@@ -30,14 +30,6 @@ class Profile extends React.Component{
         fetch(`http://localhost:3000/users/${this.props.user.id}`,{ method: "DELETE"}
     )}
 
-    getHighScore = () => {
-        if (this.props.user.high_score === 0 || this.props.user.high_score === null || this.props.points > this.props.user.high_score) {
-            return <h2>Your High Score is: {this.props.points}</h2>
-        } else {
-            return <h2>Your High Score is: {this.props.user.high_score}</h2>
-        }
-    }
-
     render(){
         console.log(this.props.points)
         
